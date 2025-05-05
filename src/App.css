@@ -1,38 +1,186 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+.app {
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 20px;
+}
+
+.quote-container {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  max-width: 600px;
+  width: 90%;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.quote-container:hover {
+  transform: translateY(-5px);
+}
+
+h1 {
+  color: #2d3748;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+
+.categories {
+  margin-bottom: 1.5rem;
+}
+
+.category-select {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: 2px solid #667eea;
+  border-radius: 8px;
+  background: white;
+  color: #2d3748;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 200px;
+}
+
+.category-select:hover {
+  border-color: #764ba2;
+}
+
+.quote-content {
+  margin: 2rem 0;
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: opacity 0.3s ease;
+}
+
+.fade-in {
+  opacity: 1;
+}
+
+.fade-out {
+  opacity: 0;
+}
+
+.quote {
+  font-size: 1.5rem;
+  color: #2d3748;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+
+.author {
+  color: #4a5568;
+  font-size: 1.1rem;
+  margin-top: 1rem;
+}
+
+.buttons-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+.action-btn {
+  background: #667eea;
   color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 120px;
 }
 
-.App-link {
-  color: #61dafb;
+.new-quote-btn {
+  background: #667eea;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.new-quote-btn:hover,
+.action-btn:hover {
+  background: #764ba2;
+  transform: translateY(-2px);
+}
+
+.new-quote-btn:disabled,
+.action-btn:disabled {
+  background: #cbd5e0;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.copy-btn {
+  background: #48bb78;
+}
+
+.copy-btn:hover {
+  background: #38a169;
+}
+
+.share-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.share-btn.twitter {
+  background: #1da1f2;
+}
+
+.share-btn.twitter:hover {
+  background: #1991db;
+}
+
+.share-btn.telegram {
+  background: #0088cc;
+}
+
+.share-btn.telegram:hover {
+  background: #0077b3;
+}
+
+.loader {
+  color: #4a5568;
+  font-size: 1.2rem;
+  animation: pulse 1.5s infinite;
+}
+
+.error {
+  color: #e53e3e;
+  margin: 1rem 0;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.6;
   }
-  to {
-    transform: rotate(360deg);
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.6;
   }
 }
