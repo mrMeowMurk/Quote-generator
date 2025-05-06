@@ -1,0 +1,125 @@
+.header {
+  width: 100%;
+  padding: 2.5rem 2rem;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+  border-radius: 24px;
+  margin-bottom: 2.5rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  border: 1.5px solid var(--color-border);
+}
+
+.dark-mode .header {
+  background: linear-gradient(135deg, rgba(45, 55, 72, 0.2) 0%, rgba(26, 32, 44, 0.2) 100%);
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.greeting {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.greeting-main {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.greeting h2 {
+  font-size: 2.5rem;
+  margin: 0;
+  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent2) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+}
+
+.greeting-emoji {
+  font-size: 2.5rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+.date {
+  font-size: 1.1rem;
+  color: var(--color-muted);
+  margin: 0;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: var(--color-text);
+  margin: 0.5rem 0 0 0;
+  line-height: 1.5;
+  max-width: 600px;
+}
+
+.theme-toggle {
+  font-size: 1.8rem;
+  cursor: pointer;
+  padding: 0.8rem;
+  border-radius: 50%;
+  background: var(--color-bg-panel);
+  border: 1.5px solid var(--color-border);
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-toggle:hover {
+  transform: rotate(180deg) scale(1.1);
+  border-color: var(--color-accent);
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 1.5rem 1rem;
+    margin-bottom: 1.5rem;
+    border-radius: 16px;
+  }
+
+  .header-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
+  }
+
+  .greeting h2 {
+    font-size: 2rem;
+  }
+
+  .greeting-emoji {
+    font-size: 2rem;
+  }
+
+  .date {
+    font-size: 1rem;
+  }
+
+  .subtitle {
+    font-size: 1.1rem;
+  }
+
+  .theme-toggle {
+    font-size: 1.5rem;
+    padding: 0.6rem;
+  }
+} 
