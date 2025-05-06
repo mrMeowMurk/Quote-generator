@@ -1,70 +1,81 @@
-# Getting Started with Create React App
+# 📚 Quote Generator
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<div align="center">
 
-## Available Scripts
+![Quote Generator](https://img.shields.io/badge/Quote-Generator-7f5af0?style=for-the-badge&logo=react)
+![Version](https://img.shields.io/badge/version-1.0.0-blue.svg?style=for-the-badge)
+![License](https://img.shields.io/badge/license-MIT-green.svg?style=for-the-badge)
 
-In the project directory, you can run:
+Элегантный генератор цитат с современным интерфейсом и богатым функционалом
 
-### `npm start`
+[Демо](#) • [Сообщить об ошибке](https://github.com/yourusername/quote-generator/issues) • [Запросить функцию](https://github.com/yourusername/quote-generator/issues)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+</div>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## ✨ Возможности
 
-### `npm test`
+- 🎯 **Случайные цитаты** - получайте вдохновляющие цитаты одним кликом
+- 🏷️ **Категории** - фильтруйте цитаты по различным категориям
+- ⭐ **Избранное** - сохраняйте любимые цитаты
+- 📜 **История** - отслеживайте просмотренные цитаты
+- 🌓 **Темная тема** - комфортное использование в любое время суток
+- 🔊 **Озвучивание** - прослушивание цитат голосом
+- 📱 **Адаптивный дизайн** - отлично работает на всех устройствах
+- 📤 **Поделиться** - делитесь цитатами в социальных сетях
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🚀 Быстрый старт
 
-### `npm run build`
+```bash
+# Клонировать репозиторий
+git clone https://github.com/yourusername/quote-generator.git
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Перейти в директорию проекта
+cd quote-generator
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Установить зависимости
+npm install
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Запустить приложение
+npm start
+```
 
-### `npm run eject`
+## 🛠️ Технологии
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- [React](https://reactjs.org/) - JavaScript библиотека для создания пользовательских интерфейсов
+- [Framer Motion](https://www.framer.com/motion/) - библиотека для создания анимаций
+- [Quotable API](https://github.com/lukePeavey/quotable) - API для получения цитат
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 📦 API
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Приложение использует [Quotable API](https://github.com/lukePeavey/quotable) для получения цитат. 
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Основные эндпоинты:
+- `/random` - получить случайную цитату
+- `/tags` - получить список категорий
+- `/random?tags=tag` - получить случайную цитату по категории
 
-## Learn More
+## 🤝 Вклад в проект
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Мы приветствуем любой вклад в развитие проекта! Вот как вы можете помочь:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. Форкните репозиторий
+2. Создайте ветку для ваших изменений (`git checkout -b feature/AmazingFeature`)
+3. Зафиксируйте изменения (`git commit -m 'Add some AmazingFeature'`)
+4. Отправьте изменения в ваш форк (`git push origin feature/AmazingFeature`)
+5. Откройте Pull Request
 
-### Code Splitting
+## 📝 Лицензия
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Этот проект распространяется под лицензией MIT. Подробности в файле [LICENSE](LICENSE).
 
-### Analyzing the Bundle Size
+## 📞 Поддержка
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Если у вас возникли вопросы или проблемы:
+- Напишите в Telegram: @MrMeowMurk
+- mrMeowMurk - [@mrMeowMurk](https://github.com/mrMeowMurk)
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+<div align="center">
+Сделано с ❤️ MeowMurk
+</div>
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
