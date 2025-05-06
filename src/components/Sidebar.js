@@ -11,22 +11,20 @@ const QuoteCard = ({ quote, author, onSelect, onRemove, showRemove, addedAt }) =
 
   return (
     <div className="quote-card" onClick={onSelect}>
+      {showRemove && (
+        <button 
+          className="remove-button" 
+          onClick={e => {
+            e.stopPropagation();
+            onRemove();
+          }}
+          title="Удалить из избранного"
+        >
+          ✕
+        </button>
+      )}
       <div className="quote-content">
-        <div className="quote-header">
-          <span className="quote-date" title="Время добавления">{formattedDate}</span>
-          {showRemove && (
-            <button 
-              className="remove-button" 
-              onClick={e => {
-                e.stopPropagation();
-                onRemove();
-              }}
-              title="Удалить из избранного"
-            >
-              ✕
-            </button>
-          )}
-        </div>
+        <span className="quote-date" title="Время добавления">{formattedDate}</span>
         <p className="quote-text">"{quote}"</p>
         <div className="quote-footer">
           <p className="quote-author">— {author}</p>

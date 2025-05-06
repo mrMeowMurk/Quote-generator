@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
+import MainColumn from './components/MainColumn';
 import './App.css';
 
 function App() {
@@ -49,7 +50,7 @@ function App() {
         setQuote(data.content);
         setAuthor(data.author);
         setFadeIn(true);
-        setQuoteHistory(prev => [...prev, { content: data.content, author: data.author }]);
+        setQuoteHistory(prev => [...prev, { content: data.content, author: data.author, category: data.tags[0] }]);
       }, 300);
     } catch (err) {
       setError('Произошла ошибка при загрузке цитаты. Попробуйте еще раз.');
@@ -69,7 +70,7 @@ function App() {
   };
 
   const toggleFavorite = () => {
-    const newFavorite = { quote, author };
+    const newFavorite = { quote, author, category, addedAt: new Date().toISOString() };
     if (favorites.some(fav => fav.quote === quote)) {
       setFavorites(favorites.filter(fav => fav.quote !== quote));
     } else {
@@ -141,96 +142,25 @@ function App() {
           darkMode={darkMode}
           style={{display: sidebarOpen ? 'block' : ''}}
         />
-        <main className="main-column">
-          <div className="quote-container">
-            <div className="controls">
-              <div className="categories">
-                <select 
-                  value={category} 
-                  onChange={(e) => setCategory(e.target.value)}
-                  className="category-select"
-                >
-                  <option value="">Все категории</option>
-                  {categories.map(cat => (
-                    <option key={cat.name} value={cat.name}>
-                      {cat.name}
-                    </option>
-                  ))}
-                </select>
-              </div>
-            </div>
-
-            {error ? (
-              <div className="error">{error}</div>
-            ) : (
-              <>
-                <div 
-                  className={`quote-content ${fadeIn ? 'fade-in' : 'fade-out'}`}
-                >
-                  {isLoading ? (
-                    <div className="loader">Загрузка...</div>
-                  ) : (
-                    <>
-                      <p className="quote">"{quote}"</p>
-                      <p className="author">- {author}</p>
-                    </>
-                  )}
-                </div>
-
-                <div className="buttons-container">
-                  <button 
-                    className="action-btn copy-btn"
-                    onClick={copyToClipboard}
-                    disabled={isLoading}
-                  >
-                    {copied ? '✓ Скопировано' : 'Копировать'}
-                  </button>
-
-                  <button 
-                    className="action-btn favorite-btn"
-                    onClick={toggleFavorite}
-                    disabled={isLoading}
-                  >
-                    {favorites.some(fav => fav.quote === quote) ? '★ В избранном' : '☆ В избранное'}
-                  </button>
-
-                  <button 
-                    className="new-quote-btn"
-                    onClick={fetchNewQuote}
-                    disabled={isLoading}
-                  >
-                    Новая цитата
-                  </button>
-
-                  <button 
-                    className="action-btn speak-btn"
-                    onClick={speakQuote}
-                    disabled={isLoading}
-                  >
-                    Прослушать
-                  </button>
-
-                  <div className="share-buttons">
-                    <button 
-                      className="action-btn share-btn twitter"
-                      onClick={shareOnTwitter}
-                      disabled={isLoading}
-                    >
-                      Twitter
-                    </button>
-                    <button 
-                      className="action-btn share-btn telegram"
-                      onClick={shareOnTelegram}
-                      disabled={isLoading}
-                    >
-                      Telegram
-                    </button>
-                  </div>
-                </div>
-              </>
-            )}
-          </div>
-        </main>
+        <MainColumn
+          quote={quote}
+          author={author}
+          category={category}
+          isLoading={isLoading}
+          error={error}
+          copied={copied}
+          fadeIn={fadeIn}
+          categories={categories}
+          onCategoryChange={setCategory}
+          onCopyClick={copyToClipboard}
+          onFavoriteClick={toggleFavorite}
+          onNewQuoteClick={fetchNewQuote}
+          onSpeakClick={speakQuote}
+          onShareTwitter={shareOnTwitter}
+          onShareTelegram={shareOnTelegram}
+          isFavorite={favorites.some(fav => fav.quote === quote)}
+          darkMode={darkMode}
+        />
       </div>
     </div>
   );
