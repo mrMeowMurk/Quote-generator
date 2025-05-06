@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/Header.css';
+import './Header.css';
 
 const Header = ({ darkMode, toggleDarkMode }) => {
   const currentHour = new Date().getHours();

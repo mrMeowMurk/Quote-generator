@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import '../styles/MainColumn.css';
+import './MainColumn.css';
 
 const MainColumn = ({
   quote,

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../styles/Sidebar.css';
+import './Sidebar.css';
 
 const QuoteCard = ({ quote, author, onSelect, onRemove, showRemove, addedAt }) => {
   const formattedDate = new Date(addedAt).toLocaleDateString('ru-RU', {
