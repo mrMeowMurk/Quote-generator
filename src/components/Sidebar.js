@@ -1,6 +1,63 @@
 import React, { useState } from 'react';
 import '../styles/Sidebar.css';
 
+const QuoteCard = ({ quote, author, onSelect, onRemove, showRemove, addedAt }) => {
+  const formattedDate = new Date(addedAt).toLocaleDateString('ru-RU', {
+    day: 'numeric',
+    month: 'short',
+    hour: '2-digit',
+    minute: '2-digit'
+  });
+
+  return (
+    <div className="quote-card" onClick={onSelect}>
+      <div className="quote-content">
+        <div className="quote-header">
+          <span className="quote-date" title="Время добавления">{formattedDate}</span>
+          {showRemove && (
+            <button 
+              className="remove-button" 
+              onClick={e => {
+                e.stopPropagation();
+                onRemove();
+              }}
+              title="Удалить из избранного"
+            >
+              ✕
+            </button>
+          )}
+        </div>
+        <p className="quote-text">"{quote}"</p>
+        <div className="quote-footer">
+          <p className="quote-author">— {author}</p>
+          <div className="quote-actions">
+            <button 
+              className="action-button copy"
+              onClick={e => {
+                e.stopPropagation();
+                navigator.clipboard.writeText(`"${quote}" — ${author}`);
+              }}
+              title="Копировать цитату"
+            >
+              📋
+            </button>
+            <button 
+              className="action-button share"
+              onClick={e => {
+                e.stopPropagation();
+                window.open(`https://t.me/share/url?url=&text=${encodeURIComponent(`"${quote}" — ${author}`)}`, '_blank');
+              }}
+              title="Поделиться в Telegram"
+            >
+              ✈️
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const Sidebar = ({
   favorites,
   history,
@@ -12,6 +69,7 @@ const Sidebar = ({
 }) => {
   const [tab, setTab] = useState('favorites');
   const [filter, setFilter] = useState('');
+  
   const list = tab === 'favorites' ? favorites : history;
   const filtered = filter
     ? list.filter(item => item.category === filter)
@@ -79,28 +137,15 @@ const Sidebar = ({
         ) : (
           <div className="sidebar-list">
             {filtered.map((item, i) => (
-              <div 
-                key={i} 
-                className="quote-card"
-                onClick={() => onSelectQuote(item)}
-              >
-                <div className="quote-content">
-                  <p className="quote-text">"{item.quote || item.content}"</p>
-                  <p className="quote-author">— {item.author}</p>
-                </div>
-                {tab === 'favorites' && (
-                  <button 
-                    className="remove-button" 
-                    onClick={e => {
-                      e.stopPropagation();
-                      removeFavorite(i);
-                    }}
-                    title="Удалить из избранного"
-                  >
-                    ✕
-                  </button>
-                )}
-              </div>
+              <QuoteCard
+                key={i}
+                quote={item.quote || item.content}
+                author={item.author}
+                addedAt={item.addedAt || new Date().toISOString()}
+                showRemove={tab === 'favorites'}
+                onSelect={() => onSelectQuote(item)}
+                onRemove={() => removeFavorite(i)}
+              />
             ))}
           </div>
         )}
