@@ -8,7 +8,7 @@
 
 Элегантный генератор цитат с современным интерфейсом и богатым функционалом
 
-[Демо](#) • [Сообщить об ошибке](https://github.com/yourusername/quote-generator/issues) • [Запросить функцию](https://github.com/yourusername/quote-generator/issues)
+![Quote Generator Preview](preview.png)
 
 </div>
 
